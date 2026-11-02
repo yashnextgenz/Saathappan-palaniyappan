@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { COMPANY_INFO, NAV_LINKS } from '@/data/content';
 
 const SERVICE_LINKS = [
   { label: 'Industrial Salt & Bulk Supply', href: '/services#industrial-salt' },
-  { label: 'Apartment & Property Management', href: '/services#property-mgmt' },
+  { label: 'Salt Pan & Water Flow Development', href: '/services#field-services' },
 ];
 
 const LEGAL_LINKS = [
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           {/* The navy logo is rendered white so it shows on the dark background */}
           <Image src="/duco.png" alt="DUCO Traders" width={419} height={160} className="h-16 w-auto brightness-0 invert" />
           <p className="mt-4 text-sm leading-relaxed text-white/90">
-            Industrial salt manufacturing and bulk supply, plus management and maintenance for apartment complexes and residential societies.
+            Industrial salt manufacturing and bulk supply, plus salt pan and water flow development. Rooted in experience. Focused on growth.
           </p>
         </div>
 
@@ -62,10 +62,6 @@ export const Footer: React.FC = () => {
             <li className="flex items-start gap-3">
               <FaEnvelope className="w-4 h-4 shrink-0 mt-0.5 text-teal-200" aria-hidden="true" />
               <a href={`mailto:${COMPANY_INFO.email}`} className={`${LINK} break-all`}>{COMPANY_INFO.email}</a>
-            </li>
-            <li className="flex items-start gap-3">
-              <FaMapMarkerAlt className="w-4 h-4 shrink-0 mt-0.5 text-teal-200" aria-hidden="true" />
-              <span>{COMPANY_INFO.address}</span>
             </li>
           </ul>
         </div>

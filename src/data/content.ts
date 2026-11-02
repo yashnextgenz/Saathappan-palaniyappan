@@ -16,27 +16,26 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.ducotr
 export const COMPANY_INFO = {
   name: 'DUCO TRADERS',
   legalName: 'DUCO Traders',
-  valuesSummary: 'INDUSTRIAL SALT | PROPERTY MANAGEMENT',
-  // TODO: replace with the real phone number and address before launch.
-  phone: '+91 98765 43210',
-  email: 'info@ducotraders.com',
-  address: '123, Main Road, Chennai, Tamil Nadu, India',
+  valuesSummary: 'INDUSTRIAL SALT | SALT-FIELD DEVELOPMENT',
+  phone: '+91 81244 78383',
+  email: 'duco.traders@gmail.com',
+  // Used only for the governing-law clause in the Terms of Use.
   city: 'Chennai',
   state: 'Tamil Nadu',
   country: 'India',
 };
 
 export const HOME_CONTENT = {
-  eyebrow: 'Industrial salt · Bulk B2B supply',
-  headline: 'Industrial Salt, Manufactured and Supplied in Bulk',
+  eyebrow: 'Industrial salt manufacturing',
+  headline: 'Building Capacity. Strengthening Commercial Supply.',
   subheading:
-    'DUCO Traders manufactures industrial salt and supplies it in bulk to chemical fertilizer companies and other businesses. We also manage and maintain large apartment complexes and residential societies.',
+    'DUCO Traders manufactures crystal salt for commercial buyers, mainly chemical and fertiliser manufacturers, and offers salt pan and water flow development services to salt-field owners.',
   primaryCta: 'Request a Bulk Quote',
-  secondaryCta: 'Property Management',
+  secondaryCta: 'Salt-Field Services',
   trustStats: [
-    { id: 'stat-1', badge: 'Manufacturer', label: 'Industrial salt', icon: 'medal' },
-    { id: 'stat-2', badge: 'Bulk B2B', label: 'Chemical fertilizer companies', icon: 'handshake' },
-    { id: 'stat-3', badge: 'Maintenance', label: 'Apartments & residential societies', icon: 'shield' },
+    { id: 'stat-1', badge: 'Since 2022', label: 'Manufacturing crystal salt', icon: 'medal' },
+    { id: 'stat-2', badge: '15 Years', label: 'Salt-field management experience', icon: 'shield' },
+    { id: 'stat-3', badge: '3 Core', label: 'Products and services', icon: 'handshake' },
   ],
   services: [
     {
@@ -45,54 +44,54 @@ export const HOME_CONTENT = {
       link: '/services#industrial-salt',
     },
     {
-      id: 'property-mgmt',
-      title: 'Apartment & Property Management',
-      link: '/services#property-mgmt',
+      id: 'field-services',
+      title: 'Salt Pan & Water Flow Development',
+      link: '/services#field-services',
     },
   ],
 };
 
 export const ABOUT_CONTENT = {
-  subtitle: 'Salt manufacturer first. Property caretaker second.',
+  subtitle: 'Rooted in experience. Focused on growth.',
   paragraph1:
-    'DUCO Traders manufactures industrial salt. We supply it in bulk to chemical fertilizer companies and to other businesses, manufacturers and companies that need it in large quantities.',
+    'Our business began with salt wholesaling during the COVID-19 pandemic and expanded into crystal salt manufacturing on leased land in 2022. We serve industrial buyers, including chemical and fertiliser manufacturers.',
   paragraph2:
-    'Our second business is apartment and property management: we provide management and maintenance services for large apartment complexes and residential societies.',
+    'We combine entrepreneurial experience with 15 years of salt-field management expertise. Our vision is to improve production efficiency, expand capacity and establish lasting customer relationships.',
 };
 
 export const SERVICES_CONTENT = {
   primaryService: {
-    pill: '01 PRIMARY BUSINESS · B2B',
+    pill: '01 INDUSTRIAL SALT · BULK SUPPLY',
     title: 'Industrial Salt Manufacturing & Bulk Supply',
     description:
-      'We manufacture industrial salt and supply it in bulk to chemical fertilizer companies and to other businesses, manufacturers and companies that need it in large quantities.',
+      'We manufacture crystal salt for industrial applications and supply it in bulk to commercial buyers, mainly chemical and fertiliser manufacturers, through agreed weekly or monthly delivery schedules.',
     checklist: [
-      'Industrial salt manufacturing',
-      'Bulk supply to chemical fertilizer companies',
-      'Bulk supply to other companies',
-      'For businesses that need large quantities',
+      'Crystal salt for industrial applications',
+      'Bulk supply to commercial buyers',
+      'Weekly or monthly delivery schedules',
+      'Agreed specifications and volumes',
+      'Samples and trial orders',
     ],
     cta: 'Request a Bulk Quote',
   },
   secondaryService: {
-    pill: '02 SECONDARY BUSINESS · B2B & B2C',
-    title: 'Apartment & Property Management',
+    pill: '02 SALT-FIELD SERVICES · DEVELOPMENT',
+    title: 'Salt Pan & Water Flow Development',
     description:
-      'We provide management and maintenance services for large apartment complexes and residential societies, working with apartment associations, property managers and potentially individual residents.',
+      'We create and modify salt pans and improve the access and movement of higher-salinity water for salt-field owners. Projects are limited and scheduled around our own seasonal production.',
     checklist: [
-      'Plumbing and maintenance',
-      'Furniture-related services',
-      'General property maintenance',
-      'Residential facility management',
-      'Coordination of maintenance services for residents',
+      'Salt pan creation',
+      'Salt pan modification',
+      'Water flow development',
+      'Borewell development',
     ],
-    cta: 'Discuss Your Property',
+    cta: 'Discuss Your Salt Field',
   },
 };
 
 export const CONTACT_CONTENT = {
   subtitle:
-    'Tell us how much industrial salt you need, or about your apartment complex or residential society.',
+    'Tell us about your industrial salt requirement or your salt-field project, or speak with us about investing in our expansion.',
   formTitle: 'Send Us an Enquiry',
-  servicesOptions: ['Industrial Salt: Bulk Supply', 'Apartment / Property Management', 'General Enquiry'],
+  servicesOptions: ['Industrial Salt: Bulk Supply', 'Salt Pan & Water Flow Development', 'Investment Enquiry', 'General Enquiry'],
 };

@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { ABOUT_CONTENT } from '@/data/content';
 
-/** Highlights the "property management" phrase in blue, as in the approved layout. */
+/** Highlights the "15 years of salt-field management expertise" phrase in blue, as in the approved layout. */
 const highlight = (text: string) => {
-  const match = text.match(/(property management)/i);
+  const match = text.match(/(15 years of salt-field management expertise)/i);
   if (!match || match.index === undefined) return text;
   return (
     <>

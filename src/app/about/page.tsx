@@ -2,12 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { AboutIntro } from '@/components/VisionMissionCards';
 import { Screen } from '@/components/Screen';
-import { PrimaryBusiness, SecondaryBusiness, AboutCta } from '@/components/Sections';
+import { PrimaryBusiness, SecondaryBusiness, TeamSection, InvestSection, AboutCta } from '@/components/Sections';
 
 export const metadata: Metadata = {
   title: 'About Us | DUCO Traders',
   description:
-    'DUCO Traders manufactures industrial salt and supplies it in bulk, and also manages apartment complexes and residential societies.',
+    'DUCO Traders has manufactured crystal salt since 2022, combining entrepreneurial drive with 15 years of salt-field management expertise.',
 };
 
 export default function AboutPage() {
@@ -16,6 +16,8 @@ export default function AboutPage() {
       <Screen><AboutIntro /></Screen>
       <Screen><PrimaryBusiness /></Screen>
       <Screen><SecondaryBusiness /></Screen>
+      <Screen><TeamSection /></Screen>
+      <Screen><InvestSection /></Screen>
       <Screen><AboutCta /></Screen>
     </>
   );

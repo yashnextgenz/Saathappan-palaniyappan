@@ -36,7 +36,7 @@ export const HomeHero: React.FC = () => {
               <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link
-              href="/services#property-mgmt"
+              href="/services#field-services"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[#0A3C61] bg-white border-2 border-[#0A3C61] hover:bg-[#0A3C61] hover:text-white rounded-pill transition-colors"
             >
               {HOME_CONTENT.secondaryCta}

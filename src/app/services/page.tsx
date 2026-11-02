@@ -3,16 +3,16 @@ import type { Metadata } from 'next';
 import { ServiceBlock } from '@/components/ServiceBlock';
 import { SERVICES_CONTENT, CONTACT_CONTENT } from '@/data/content';
 import { Screen } from '@/components/Screen';
-import { PropertyServices, FaqSection, SaltBuyers, PropertyOfferings, ServicesCta } from '@/components/Sections';
+import { ProductionApproach, FaqSection, SaltBuyers, FieldOfferings, ServicesCta } from '@/components/Sections';
 
 export const metadata: Metadata = {
-  title: 'Services | DUCO Traders - Industrial Salt Supply & Property Management',
+  title: 'Services | DUCO Traders - Industrial Salt Supply & Salt-Field Development',
   description:
-    'Industrial salt manufactured and supplied in bulk to chemical fertilizer companies and other businesses, plus maintenance and facility management for apartment complexes and residential societies.',
+    'Crystal salt supplied in bulk to chemical and fertiliser manufacturers, plus salt pan and water flow development for salt-field owners.',
 };
 
 export default function ServicesPage() {
-  const { primaryService: salt, secondaryService: property } = SERVICES_CONTENT;
+  const { primaryService: salt, secondaryService: field } = SERVICES_CONTENT;
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
             <div className="mb-2">
               <h1 className="text-2xl sm:text-4xl font-extrabold text-[#12355A] tracking-tight leading-tight">
-                Our Two Businesses
+                Our Products & Services
               </h1>
               <span className="block w-12 h-1 bg-[#0A3C61] rounded-full mt-3" />
             </div>
@@ -45,21 +45,21 @@ export default function ServicesPage() {
         </section>
       </Screen>
 
-      <Screen id="property-mgmt">
+      <Screen id="field-services">
         <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ServiceBlock
-              pill={property.pill}
-              title={property.title}
-              description={property.description}
-              checklist={property.checklist}
-              cta={property.cta}
+              pill={field.pill}
+              title={field.title}
+              description={field.description}
+              checklist={field.checklist}
+              cta={field.cta}
               accent="#248482"
-              mainImage={{ src: '/images/hd/apartment-towers.jpg', alt: 'Large residential apartment towers' }}
+              mainImage={{ src: '/images/hd/saltworks-landscape.jpg', alt: 'Salt fields and salt pans' }}
               thumbs={[
-                { src: '/images/hd/maintenance-plumber.jpg', alt: 'Plumber repairing a bathroom sink', label: 'Plumbing & maintenance' },
-                { src: '/images/hd/maintenance-carpentry.jpg', alt: 'Furniture work in a timber workshop', label: 'Furniture services' },
-                { src: '/images/hd/maintenance-electrical.jpg', alt: 'Maintenance worker with tools', label: 'General maintenance' },
+                { src: '/images/hd/salt-pans-worker.jpg', alt: 'Salt worker raking a salt pan', label: 'Salt pan development' },
+                { src: '/images/hd/salt-crystals.jpg', alt: 'Salt crystals', label: 'Higher-salinity brine' },
+                { src: '/images/hd/salt-harvest.jpg', alt: 'Salt being heaped', label: 'Field operations' },
               ]}
               defaultService={CONTACT_CONTENT.servicesOptions[1]}
             />
@@ -68,8 +68,8 @@ export default function ServicesPage() {
       </Screen>
 
       <Screen><SaltBuyers /></Screen>
-      <Screen><PropertyOfferings /></Screen>
-      <Screen><PropertyServices /></Screen>
+      <Screen><FieldOfferings /></Screen>
+      <Screen><ProductionApproach /></Screen>
       <Screen><FaqSection /></Screen>
       <Screen><ServicesCta /></Screen>
     </>

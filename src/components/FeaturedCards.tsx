@@ -7,14 +7,14 @@ import { HOME_CONTENT } from '@/data/content';
 
 const IMAGES: Record<string, { src: string; alt: string }> = {
   'industrial-salt': { src: '/images/hd/salt-stockpile-conveyor.jpg', alt: 'Industrial salt stockpiles and conveyors at a saltworks' },
-  'property-mgmt': { src: '/images/hd/apartments-chennai.jpg', alt: 'Apartment towers' },
+  'field-services': { src: '/images/hd/saltworks-landscape.jpg', alt: 'Salt fields and salt pans' },
 };
 
-/** The two businesses as full-bleed photo panels, edge to edge, primary first. */
+/** The two offerings as full-bleed photo panels, edge to edge, primary first. */
 export const FeaturedCards: React.FC = () => {
   return (
     <section className="w-full bg-[#0A3C61]">
-      <h2 className="sr-only">Our two businesses</h2>
+      <h2 className="sr-only">Our products and services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 flex-1">
         {HOME_CONTENT.services.map((card) => (
           <Link key={card.id} href={card.link} className="group relative block overflow-hidden min-h-[40svh] md:min-h-0">

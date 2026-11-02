@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaSeedling, FaIndustry, FaBuilding, FaWrench, FaCouch, FaTools, FaUsersCog } from 'react-icons/fa';
+import { FaSeedling, FaIndustry, FaBuilding, FaWater, FaTools, FaLayerGroup, FaWrench } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 import { SERVICES_CONTENT } from '@/data/content';
 
@@ -64,8 +64,8 @@ export const AboutSnapshot: React.FC = () => (
         <SectionHeading
           center={false}
           eyebrow="About DUCO Traders"
-          title="Salt manufacturing at the core"
-          text="We manufacture industrial salt and supply it in bulk to chemical fertilizer companies and other businesses. We also manage and maintain large apartment complexes and residential societies."
+          title="From wholesale trading to manufacturing"
+          text="Our business began with salt wholesaling during the COVID-19 pandemic and expanded into crystal salt manufacturing on leased land in 2022. Today we combine entrepreneurial drive with 15 years of salt-field management expertise."
         />
         <TextLink href="/about">About us</TextLink>
       </div>
@@ -77,20 +77,20 @@ const BUYERS = [
   {
     src: '/images/hd/salt-strip.jpg',
     alt: 'Close-up of a large heap of industrial salt',
-    title: 'Chemical fertilizer companies',
-    text: 'Industrial salt supplied in bulk to chemical fertilizer companies.',
+    title: 'Chemical manufacturers',
+    text: 'Bulk crystal salt for recurring industrial requirements.',
   },
   {
     src: '/images/hd/salt-stockpile-conveyor.jpg',
     alt: 'Industrial salt stockpiles and conveyors',
-    title: 'Manufacturers',
-    text: 'Bulk supply for manufacturers that need salt in large quantities.',
+    title: 'Fertiliser manufacturers',
+    text: 'Supply agreed around your specifications, volumes and delivery schedules.',
   },
   {
     src: '/images/hd/bulk-lorry.jpg',
     alt: 'Lorry loaded with sacks',
-    title: 'Other companies',
-    text: 'Bulk supply for any other business that needs salt in large quantities.',
+    title: 'Other commercial buyers',
+    text: 'Weekly or monthly bulk deliveries planned around your requirements.',
   },
 ];
 
@@ -99,9 +99,9 @@ export const IndustriesServed: React.FC = () => (
   <section className="w-full bg-[#EEF1F5] py-12 sm:py-16 lg:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-16 lg:items-end mb-8 sm:mb-10">
-        <h2 className="text-[28px] sm:text-[40px] font-extrabold tracking-tight leading-tight text-[#12355A]">Who we supply</h2>
+        <h2 className="text-[28px] sm:text-[40px] font-extrabold tracking-tight leading-tight text-[#12355A]">Who we serve</h2>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          We supply businesses, manufacturers and companies that need industrial salt in large quantities.
+          We serve commercial buyers, mainly chemical and fertiliser manufacturers, through long-term supply relationships.
         </p>
       </div>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -132,7 +132,7 @@ export const CtaBand: React.FC = () => (
         </p>
         <h3 className="mt-7 sm:mt-8 text-sm font-bold text-teal-200">What to include in your enquiry</h3>
         <ul className="mt-2 max-w-md border-t border-white/25">
-          {['How much salt you need', 'Your company and industry', 'Where it needs to be delivered'].map((item) => (
+          {['Your specifications and volumes', 'Your company and industry', 'Your preferred delivery schedule'].map((item) => (
             <li key={item} className="py-3 border-b border-white/25 text-sm sm:text-[15px] font-medium">{item}</li>
           ))}
         </ul>
@@ -160,7 +160,7 @@ export const CtaBand: React.FC = () => (
 
 /* ===================== ABOUT ===================== */
 
-/** Primary business: wide photo with a white panel overlapping its edge. */
+/** Salt manufacturing: wide photo with a white panel overlapping its edge. */
 export const PrimaryBusiness: React.FC = () => (
   <section className="w-full bg-white py-12 sm:py-16 lg:py-24">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 items-center">
@@ -168,12 +168,12 @@ export const PrimaryBusiness: React.FC = () => (
         <Image src="/images/hd/salt-stockpile-conveyor.jpg" alt="Industrial salt stockpiles and conveyors" fill quality={85} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
       </div>
       <div className="relative lg:col-start-7 lg:col-span-6 lg:row-start-1 bg-white pt-6 lg:p-12 lg:rounded-lg lg:shadow-xl">
-        <p className="text-sm font-bold text-[#1d6b69]">Our primary business</p>
+        <p className="text-sm font-bold text-[#1d6b69]">Our core business</p>
         <h2 className="mt-2 text-[24px] sm:text-[34px] font-extrabold leading-tight text-[#12355A]">Industrial salt, made and supplied in bulk</h2>
         <p className="mt-4 text-sm sm:text-[15px] text-slate-600 leading-relaxed">{SERVICES_CONTENT.primaryService.description}</p>
-        <h3 className="mt-6 text-sm font-bold text-[#12355A]">Who buys our salt</h3>
+        <h3 className="mt-6 text-sm font-bold text-[#12355A]">Who we serve</h3>
         <ul className="mt-2 divide-y divide-slate-200 border-y border-slate-200">
-          {['Chemical fertilizer companies', 'Manufacturers', 'Other businesses that need large quantities'].map((item) => (
+          {['Chemical manufacturers', 'Fertiliser manufacturers', 'Other commercial buyers'].map((item) => (
             <li key={item} className="py-2.5 text-sm font-medium text-slate-800">{item}</li>
           ))}
         </ul>
@@ -182,13 +182,13 @@ export const PrimaryBusiness: React.FC = () => (
   </section>
 );
 
-/** Secondary business: quieter, services as a two-column list beside a smaller photo. */
+/** Field services: quieter, services as a two-column list beside a smaller photo. */
 export const SecondaryBusiness: React.FC = () => (
   <section className="w-full bg-[#EEF1F5] py-12 sm:py-16 lg:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[7fr_4fr] gap-8 lg:gap-16 items-center">
       <div>
-        <p className="text-sm font-bold text-[#1d6b69]">Our secondary business</p>
-        <h2 className="mt-2 text-[22px] sm:text-[30px] font-extrabold leading-tight text-[#12355A]">Apartment and property management</h2>
+        <p className="text-sm font-bold text-[#1d6b69]">Our salt-field services</p>
+        <h2 className="mt-2 text-[22px] sm:text-[30px] font-extrabold leading-tight text-[#12355A]">Salt pan and water flow development</h2>
         <p className="mt-4 text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-2xl">{SERVICES_CONTENT.secondaryService.description}</p>
         <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 border-t border-slate-300">
           {SERVICES_CONTENT.secondaryService.checklist.map((item) => (
@@ -197,22 +197,95 @@ export const SecondaryBusiness: React.FC = () => (
         </ul>
       </div>
       <div className="relative aspect-[16/10] lg:aspect-[4/5] overflow-hidden rounded-lg">
-        <Image src="/images/hd/apartment-towers.jpg" alt="Large residential apartment towers" fill quality={85} sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" />
+        <Image src="/images/hd/saltworks-landscape.jpg" alt="Salt fields and salt pans" fill quality={85} sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" />
+      </div>
+    </div>
+  </section>
+);
+
+const TEAM = [
+  {
+    name: 'Saathappan Palaniyappan',
+    role: 'Founder',
+    bio: 'Saathappan is an IT hardware engineer with a background in cloud and networking. He began salt wholesaling as a hobby during the COVID-19 pandemic before leaving his role at a US-based company to pursue the business full time. In 2022, he expanded into industrial salt manufacturing on leased land.',
+  },
+  {
+    name: 'Kasiviswanathan',
+    role: 'Salt-field management',
+    bio: 'Kasiviswanathan brings 15 years of managerial experience in salt fields, including work with producers supplying companies such as Tata Salt. His practical expertise supports field preparation, production planning and daily operations.',
+  },
+];
+
+/** The people behind the business, as two ruled columns. */
+export const TeamSection: React.FC = () => (
+  <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading center={false} eyebrow="Our team" title="Technical knowledge and field experience" />
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+        {TEAM.map((p) => (
+          <li key={p.name} className="border-t-4 border-[#0A3C61] pt-5">
+            <h3 className="text-lg sm:text-xl font-bold text-[#12355A]">{p.name}</h3>
+            <p className="mt-1 text-sm font-semibold text-[#1d6b69]">{p.role}</p>
+            <p className="mt-3 text-sm sm:text-[15px] text-slate-600 leading-relaxed">{p.bio}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
+
+const FUND_USE = [
+  { share: 40, label: 'Salt-field acquisition & land development' },
+  { share: 25, label: 'Borewells & brine infrastructure' },
+  { share: 15, label: 'Working capital' },
+  { share: 10, label: 'Production & handling equipment' },
+  { share: 10, label: 'Storage & dispatch infrastructure' },
+];
+
+/** Investment case: copy on the left, use of funds on the right. */
+export const InvestSection: React.FC = () => (
+  <section id="invest" className="scroll-mt-24 w-full bg-[#EEF1F5] py-12 sm:py-16 lg:py-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+      <div>
+        <SectionHeading
+          center={false}
+          eyebrow="Partner with us"
+          title="A proposed ₹3 crore investment for expansion"
+          text="We aim to acquire or develop owned salt fields, strengthen production infrastructure and support working capital. We welcome investors who share our vision of building a scalable enterprise through long-term supply relationships."
+        />
+        <TextLink href="/contact">Speak with us</TextLink>
+      </div>
+      <div>
+        <h3 className="text-sm font-bold text-[#12355A]">Proposed use of funds</h3>
+        <ul className="mt-3 space-y-4">
+          {FUND_USE.map((f) => (
+            <li key={f.label}>
+              <div className="flex items-baseline justify-between gap-4 text-sm">
+                <span className="font-medium text-slate-800">{f.label}</span>
+                <span className="font-bold text-[#12355A] tabular-nums">{f.share}%</span>
+              </div>
+              <div className="mt-1.5 h-2 rounded-full bg-white">
+                <div className="h-full rounded-full bg-[#0A3C61]" style={{ width: `${f.share}%` }} />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
 );
 
 const AT_A_GLANCE = [
-  { name: 'Industrial salt', who: 'Chemical fertilizer companies, manufacturers and other bulk buyers', model: 'B2B', href: '/services#industrial-salt' },
-  { name: 'Property management', who: 'Apartment associations, property managers and residential societies', model: 'B2B, potentially B2C', href: '/services#property-mgmt' },
+  { name: 'Industrial salt', who: 'Chemical and fertiliser manufacturers and other commercial buyers', model: 'Bulk sales', href: '/services#industrial-salt' },
+  { name: 'Salt pan development', who: 'Salt-field owners creating or modifying salt pans', model: 'Service commission', href: '/services#field-services' },
+  { name: 'Water flow development', who: 'Salt-field owners improving access to higher-salinity water', model: 'Service commission', href: '/services#field-services' },
 ];
 
-/** Closing summary: each row compares a business and links to its services. */
+/** Closing summary: each row compares an offering and links to its services. */
 export const AboutCta: React.FC = () => (
   <section className="w-full bg-[#0A3C61] py-12 sm:py-16 lg:py-20 text-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-[22px] sm:text-[34px] font-extrabold leading-tight">See what each business offers</h2>
+      <h2 className="text-[22px] sm:text-[34px] font-extrabold leading-tight">See what we offer</h2>
       <ul className="mt-6 sm:mt-8 border-t border-white/30">
         {AT_A_GLANCE.map((b) => (
           <li key={b.name} className="border-b border-white/30">
@@ -232,9 +305,9 @@ export const AboutCta: React.FC = () => (
 /* ===================== SERVICES ===================== */
 
 const SALT_BUYERS = [
-  { icon: <FaSeedling />, title: 'Chemical fertilizer companies', text: 'Industrial salt supplied in bulk.' },
-  { icon: <FaIndustry />, title: 'Manufacturers', text: 'Bulk supply for manufacturers that need salt in large quantities.' },
-  { icon: <FaBuilding />, title: 'Other companies', text: 'Bulk supply for other businesses that need large quantities.' },
+  { icon: <FaIndustry />, title: 'Chemical manufacturers', text: 'Bulk crystal salt for recurring industrial requirements.' },
+  { icon: <FaSeedling />, title: 'Fertiliser manufacturers', text: 'Supply contracts with agreed specifications, volumes and delivery schedules.' },
+  { icon: <FaBuilding />, title: 'Other commercial buyers', text: 'Samples and trial orders, leading to recurring supply.' },
 ];
 
 /** Navy band listing the salt customers. */
@@ -242,7 +315,7 @@ export const SaltBuyers: React.FC = () => (
   <section className="relative w-full overflow-hidden bg-[#0A3C61] py-12 sm:py-16 lg:py-20">
     <Image src="/images/hd/salt-harvest.jpg" alt="" fill sizes="100vw" className="object-cover opacity-15" />
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading light eyebrow="Industrial salt · B2B" title="Who we supply in bulk" />
+      <SectionHeading light eyebrow="Industrial salt" title="Who we serve in bulk" />
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 md:divide-x divide-white/20 text-white">
         {SALT_BUYERS.map((b) => (
           <li key={b.title} className="text-center md:px-6">
@@ -256,22 +329,21 @@ export const SaltBuyers: React.FC = () => (
   </section>
 );
 
-const PROPERTY_OFFERINGS = [
-  { icon: <FaWrench />, title: 'Plumbing and maintenance' },
-  { icon: <FaCouch />, title: 'Furniture-related services' },
-  { icon: <FaTools />, title: 'General property maintenance' },
-  { icon: <FaBuilding />, title: 'Residential facility management' },
-  { icon: <FaUsersCog />, title: 'Coordination of maintenance services for residents' },
+const FIELD_OFFERINGS = [
+  { icon: <FaLayerGroup />, title: 'Salt pan creation' },
+  { icon: <FaTools />, title: 'Salt pan modification' },
+  { icon: <FaWater />, title: 'Water flow development' },
+  { icon: <FaWrench />, title: 'Borewell development' },
 ];
 
-/** Five property services as an icon row. */
-export const PropertyOfferings: React.FC = () => (
+/** Four field services as an icon row. */
+export const FieldOfferings: React.FC = () => (
   <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading eyebrow="Apartment & property management" title="What our property services cover" />
-      <ul className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        {PROPERTY_OFFERINGS.map((o) => (
-          <li key={o.title} className="last:col-span-2 lg:last:col-span-1 flex flex-col items-center text-center gap-3 rounded-lg bg-[#EEF1F5] p-5">
+      <SectionHeading eyebrow="Salt-field development" title="What our field services cover" />
+      <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {FIELD_OFFERINGS.map((o) => (
+          <li key={o.title} className="flex flex-col items-center text-center gap-3 rounded-lg bg-[#EEF1F5] p-5">
             <span className="text-3xl text-[#248482]" aria-hidden="true">{o.icon}</span>
             <h3 className="text-sm font-semibold text-[#12355A] leading-snug">{o.title}</h3>
           </li>
@@ -296,19 +368,19 @@ export const ServicesCta: React.FC = () => (
   </section>
 );
 
-const PROPERTY_CLIENTS = [
-  { who: 'Apartment associations', how: 'Management and maintenance services for large apartment complexes and residential societies.', model: 'B2B' },
-  { who: 'Property managers', how: 'Maintenance and residential facility management for the properties you look after.', model: 'B2B' },
-  { who: 'Individual residents', how: 'Plumbing, furniture-related and general maintenance services for residents.', model: 'B2C' },
+const APPROACH = [
+  { who: 'Higher-salinity brine preparation', how: 'We blend higher-salinity borewell water with seawater to increase brine concentration, aiming to shorten the evaporation stage before salt crystallisation.', model: 'PRODUCTION' },
+  { who: 'Direct industrial supply', how: 'We manufacture crystal salt for industrial applications and seek recurring supply agreements, with deliveries planned around buyer requirements.', model: 'SUPPLY' },
+  { who: 'Salt-field development & expansion', how: 'We offer salt pan creation, modification and borewell development. Our expansion plan includes acquiring or developing owned salt fields to increase capacity.', model: 'GROWTH' },
 ];
 
-/** Who the property team works with, as large numbered columns. */
-export const PropertyServices: React.FC = () => (
+/** Our production approach, as large numbered columns. */
+export const ProductionApproach: React.FC = () => (
   <section className="w-full bg-[#EEF1F5] py-12 sm:py-16 lg:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading center={false} eyebrow="Property management" title="Who we work with" />
+      <SectionHeading center={false} eyebrow="Our approach" title="Efficient production, direct supply and scalable capacity" />
       <ol className="grid grid-cols-1 md:grid-cols-3 md:divide-x divide-slate-200 border-t border-slate-200">
-        {PROPERTY_CLIENTS.map((c, i) => (
+        {APPROACH.map((c, i) => (
           <li key={c.who} className="py-5 sm:py-8 md:px-8 first:md:pl-0">
             <div className="flex items-baseline justify-between">
               <span className="text-5xl sm:text-6xl font-extrabold text-[#248482]/25 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
@@ -326,21 +398,25 @@ export const PropertyServices: React.FC = () => (
 const FAQS = [
   {
     q: 'What do you manufacture?',
-    a: 'We manufacture industrial salt and supply it in bulk.',
+    a: 'We manufacture crystal salt for industrial applications and supply it in bulk.',
   },
   {
-    q: 'Who do you supply?',
-    a: 'Chemical fertilizer companies and other businesses, manufacturers and companies that need salt in large quantities.',
+    q: 'Who do you serve?',
+    a: 'Commercial buyers, mainly chemical and fertiliser manufacturers, and salt-field owners who need development services.',
   },
   {
-    q: 'What property services do you provide?',
-    a: 'Plumbing and maintenance, furniture-related services, general property maintenance, residential facility management and coordination of maintenance services for residents.',
+    q: 'How do you start working with a new buyer?',
+    a: 'We provide samples and quotations and take trial orders, then agree on specifications, volumes and weekly or monthly delivery schedules for recurring supply.',
   },
   {
-    q: 'Do you work with individual residents or only associations?',
-    a: 'We work with apartment associations and property managers, and potentially with individual residents. Contact us to discuss what you need.',
+    q: 'Is salt available all year?',
+    a: 'Our production plan covers a six-month season, so we plan production, storage and delivery carefully to serve commercial buyers.',
   },
-]
+  {
+    q: 'What salt-field services do you provide?',
+    a: 'Salt pan creation and modification, water flow development and borewell development. We limit these projects and schedule them around our own production.',
+  },
+];
 
 /** Heading left, expandable questions right. */
 export const FaqSection: React.FC = () => (

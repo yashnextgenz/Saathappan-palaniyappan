@@ -80,7 +80,7 @@ export default function PrivacyPage() {
         <p>
           For any request or complaint about your personal data, contact our Grievance Officer:
           <br />
-          {COMPANY_INFO.legalName}, {COMPANY_INFO.address}
+          {COMPANY_INFO.legalName}
           <br />
           Email: <a href={`mailto:${COMPANY_INFO.email}`}>{COMPANY_INFO.email}</a> &middot; Phone: {COMPANY_INFO.phone}
           <br />

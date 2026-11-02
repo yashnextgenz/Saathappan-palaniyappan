@@ -20,25 +20,18 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: 'DUCO Traders | Industrial Salt Manufacturer & Bulk Supplier',
   description:
-    'DUCO Traders manufactures industrial salt and supplies it in bulk to chemical fertilizer companies and other businesses. We also manage and maintain apartment complexes and residential societies.',
+    'DUCO Traders manufactures crystal salt for commercial buyers, mainly chemical and fertiliser manufacturers, and offers salt pan and water flow development services.',
   authors: [{ name: 'DUCO Traders' }],
 };
 
 const ORG_JSON_LD = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'Organization',
   name: COMPANY_INFO.legalName,
   url: SITE_URL,
   logo: `${SITE_URL}/duco.png`,
   telephone: COMPANY_INFO.phone,
   email: COMPANY_INFO.email,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: COMPANY_INFO.address,
-    addressLocality: COMPANY_INFO.city,
-    addressRegion: COMPANY_INFO.state,
-    addressCountry: 'IN',
-  },
 };
 
 export default function RootLayout({

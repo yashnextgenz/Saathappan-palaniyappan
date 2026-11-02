@@ -76,7 +76,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
           <div>
             <h2 id={`${id}-title`} className="text-xl font-bold">Request a Quote</h2>
             <p className="text-xs text-cyan-200 mt-0.5">
-              DUCO Traders &bull; Industrial Salt &amp; Property Management
+              DUCO Traders &bull; Industrial Salt &amp; Salt-Field Development
             </p>
           </div>
           <button
@@ -212,7 +212,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   id={`${id}-message`}
                   rows={3}
                   maxLength={2000}
-                  placeholder="Quantity of industrial salt, or details of your apartment complex..."
+                  placeholder="Quantity of industrial salt, or details of your salt-field project..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:border-[#0A2540] focus:ring-1 focus:ring-[#0A2540]"

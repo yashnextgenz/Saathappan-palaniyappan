@@ -2,24 +2,24 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { ContactForm } from '@/components/ContactForm';
-import { ContactCards, LocationMap } from '@/components/MapAndContactInfo';
+import { ContactCards } from '@/components/MapAndContactInfo';
 import { CONTACT_CONTENT } from '@/data/content';
 import { Screen } from '@/components/Screen';
 
 export const metadata: Metadata = {
   title: 'Contact Us | DUCO Traders',
   description:
-    'Contact DUCO Traders for bulk industrial salt supply or apartment and property management.',
+    'Contact DUCO Traders for bulk industrial salt supply, salt-field development or investment enquiries.',
 };
 
 export default function ContactPage() {
   return (
     <div className="w-full bg-white">
-      {/* Intro with apartment-complex photo fading in from the right */}
+      {/* Intro with salt-field photo fading in from the right */}
       <Screen>
       <section className="relative overflow-hidden bg-[#0A3C61]">
         <div className="absolute inset-0">
-          <Image src="/images/hd/residential-society.jpg" alt="Gated residential apartment complex with landscaped grounds" fill quality={85} sizes="100vw" className="object-cover object-center" priority />
+          <Image src="/images/hd/saltworks-landscape.jpg" alt="Salt fields and salt pans" fill quality={85} sizes="100vw" className="object-cover object-center" priority />
           <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#06243d]/95 via-[#06243d]/70 to-[#06243d]/20" />
           <div className="absolute inset-0 bg-[#06243d]/80 md:hidden" />
         </div>
@@ -47,11 +47,15 @@ export default function ContactPage() {
             <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
               <div className="py-4">
                 <dt className="font-bold text-[#12355A]">Industrial salt</dt>
-                <dd className="text-sm text-slate-600 leading-relaxed mt-1">Bulk supply for chemical fertilizer companies and other businesses.</dd>
+                <dd className="text-sm text-slate-600 leading-relaxed mt-1">Bulk supply for chemical and fertiliser manufacturers and other commercial buyers.</dd>
               </div>
               <div className="py-4">
-                <dt className="font-bold text-[#12355A]">Apartment &amp; property management</dt>
-                <dd className="text-sm text-slate-600 leading-relaxed mt-1">Management and maintenance for apartment complexes and residential societies.</dd>
+                <dt className="font-bold text-[#12355A]">Salt pan &amp; water flow development</dt>
+                <dd className="text-sm text-slate-600 leading-relaxed mt-1">Creating and modifying salt pans and improving water flow for salt-field owners.</dd>
+              </div>
+              <div className="py-4">
+                <dt className="font-bold text-[#12355A]">Investment</dt>
+                <dd className="text-sm text-slate-600 leading-relaxed mt-1">Speak with us about our proposed ₹3 crore expansion.</dd>
               </div>
             </dl>
           </div>
@@ -61,8 +65,6 @@ export default function ContactPage() {
         </div>
       </section>
       </Screen>
-
-      <Screen><LocationMap /></Screen>
 
     </div>
   );
