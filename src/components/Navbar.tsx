@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
             {/* Left: Brand Logo */}
             <div className="flex items-center">
               <Link href="/" aria-label="DUCO Traders home">
-                <Image src="/duco.png" alt="DUCO Traders" width={419} height={160} priority className="h-12 sm:h-14 w-auto" />
+                <Image src="/L1.jpeg" alt="DUCO Traders" width={1536} height={1024} priority className="h-14 sm:h-16 w-auto" />
               </Link>
             </div>
 

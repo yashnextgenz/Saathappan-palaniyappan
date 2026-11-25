@@ -18,7 +18,7 @@ export const COMPANY_INFO = {
   legalName: 'DUCO Traders',
   valuesSummary: 'INDUSTRIAL SALT | SALT-FIELD DEVELOPMENT',
   phone: '+91 81244 78383',
-  email: 'duco.traders@gmail.com',
+  email: 'info@ducotraders.com',
   // Used only for the governing-law clause in the Terms of Use.
   city: 'Chennai',
   state: 'Tamil Nadu',

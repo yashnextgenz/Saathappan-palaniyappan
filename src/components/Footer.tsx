@@ -23,8 +23,7 @@ export const Footer: React.FC = () => {
     <footer className="w-full bg-[#002B4D] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_1.1fr_1.2fr] gap-8 lg:gap-12">
         <div>
-          {/* The navy logo is rendered white so it shows on the dark background */}
-          <Image src="/duco.png" alt="DUCO Traders" width={419} height={160} className="h-16 w-auto brightness-0 invert" />
+          <Image src="/L1.jpeg" alt="DUCO Traders" width={1536} height={1024} className="h-24 w-auto rounded-xl" />
           <p className="mt-4 text-sm leading-relaxed text-white/90">
             Industrial salt manufacturing and bulk supply, plus salt pan and water flow development. Rooted in experience. Focused on growth.
           </p>

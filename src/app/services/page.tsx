@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   const { primaryService: salt, secondaryService: field } = SERVICES_CONTENT;
-
   return (
     <>
       <Screen id="industrial-salt">

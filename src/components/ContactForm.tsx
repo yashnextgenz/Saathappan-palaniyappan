@@ -9,10 +9,17 @@ import {
   FiLayers,
   FiMessageSquare,
   FiCheckCircle,
+  FiArrowRight,
+  FiChevronDown,
 } from 'react-icons/fi';
 import { CONTACT_CONTENT, COMPANY_INFO } from '@/data/content';
 import { ConsentCheckbox } from './ConsentCheckbox';
 import { sendEnquiry } from './enquiry';
+
+const INPUT_CLASS =
+  'w-full pl-10 pr-4 py-2.5 text-sm text-slate-900 rounded-xl border border-slate-300 bg-slate-50/40 focus:bg-white focus:outline-none focus:border-[#0A3C61] focus:ring-2 focus:ring-[#0A3C61]/15 placeholder-slate-400 transition-colors';
+const LABEL_CLASS =
+  'block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5';
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,175 +50,212 @@ export const ContactForm: React.FC = () => {
     }
   };
 
-  return (
-    <div>
-      <h3 className="text-xl font-bold text-[#12355A] mb-5">
-        {CONTACT_CONTENT.formTitle}
-      </h3>
-
-      {status === 'success' ? (
-        <div className="py-12 text-center space-y-4" role="status">
-          <FiCheckCircle className="w-16 h-16 text-emerald-500 mx-auto" aria-hidden="true" />
-          <h4 className="text-2xl font-bold text-slate-800">Enquiry Sent</h4>
-          <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-            Thank you, <span className="font-semibold">{formData.name}</span>. We have received your enquiry and will contact you at <span className="font-semibold">{formData.email}</span> or by phone.
-          </p>
-          <button
-            onClick={() => {
-              setFormData({
-                name: '',
-                company: '',
-                phone: '',
-                email: '',
-                service: '',
-                message: '',
-              });
-              setConsent(false);
-              setError('');
-              setStatus('idle');
-            }}
-            className="mt-4 px-6 py-2.5 text-xs font-bold text-white bg-[#0A3C61] rounded-pill shadow"
-          >
-            Send Another Enquiry
-          </button>
+  if (status === 'success') {
+    return (
+      <div className="py-10 text-center space-y-4" role="status">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200">
+          <FiCheckCircle className="w-8 h-8" aria-hidden="true" />
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-          {/* Honeypot: hidden from visitors, filled in by bots */}
-          <input
-            type="text"
-            name="website"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-          />
+        <h3 className="text-2xl font-extrabold text-[#12355A]">Enquiry Received</h3>
+        <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+          Thank you, <span className="font-semibold text-slate-800">{formData.name}</span>. We have received your enquiry and will respond to{' '}
+          <span className="font-semibold text-slate-800">{formData.email}</span> or call you shortly.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setFormData({
+              name: '',
+              company: '',
+              phone: '',
+              email: '',
+              service: '',
+              message: '',
+            });
+            setConsent(false);
+            setError('');
+            setStatus('idle');
+          }}
+          className="mt-2 inline-flex items-center gap-2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0A3C61] hover:bg-[#002B4D] rounded-full shadow-md transition-colors"
+        >
+          Send Another Enquiry
+        </button>
+      </div>
+    );
+  }
 
-          {/* Your Name */}
+  return (
+    <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+      {/* Honeypot: hidden from visitors, filled in by bots */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+      />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor={`${formId}-name`} className={LABEL_CLASS}>
+            Full Name <span className="text-red-600">*</span>
+          </label>
           <div className="relative">
-            <FiUser className="absolute left-1 top-3.5 text-slate-400 w-4 h-4" aria-hidden="true" />
+            <FiUser className="absolute left-3.5 top-3 text-slate-400 w-4 h-4" aria-hidden="true" />
             <input
+              id={`${formId}-name`}
               type="text"
               required
-              placeholder="Your Name"
-              aria-label="Your Name"
+              placeholder="Your full name"
               autoComplete="name"
               maxLength={100}
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full pl-8 pr-2 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] placeholder-slate-400"
+              className={INPUT_CLASS}
             />
           </div>
+        </div>
 
-          {/* Company Name */}
+        <div>
+          <label htmlFor={`${formId}-company`} className={LABEL_CLASS}>
+            Company / Organisation
+          </label>
           <div className="relative">
-            <FiBriefcase className="absolute left-1 top-3.5 text-slate-400 w-4 h-4" aria-hidden="true" />
+            <FiBriefcase className="absolute left-3.5 top-3 text-slate-400 w-4 h-4" aria-hidden="true" />
             <input
+              id={`${formId}-company`}
               type="text"
-              placeholder="Company Name"
-              aria-label="Company Name"
+              placeholder="Company name (optional)"
               autoComplete="organization"
               maxLength={120}
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full pl-8 pr-2 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] placeholder-slate-400"
+              className={INPUT_CLASS}
             />
           </div>
+        </div>
+      </div>
 
-          {/* Phone Number */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor={`${formId}-phone`} className={LABEL_CLASS}>
+            Phone Number <span className="text-red-600">*</span>
+          </label>
           <div className="relative">
-            <FiPhone className="absolute left-1 top-3.5 text-slate-400 w-4 h-4" aria-hidden="true" />
+            <FiPhone className="absolute left-3.5 top-3 text-slate-400 w-4 h-4" aria-hidden="true" />
             <input
+              id={`${formId}-phone`}
               type="tel"
               required
-              placeholder="Phone Number"
-              aria-label="Phone Number"
+              placeholder="+91 98765 43210"
               autoComplete="tel"
               inputMode="tel"
               pattern="[+0-9 ()\-]{7,20}"
               title="Enter a valid phone number, e.g. +91 98765 43210"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full pl-8 pr-2 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] placeholder-slate-400"
+              className={INPUT_CLASS}
             />
           </div>
+        </div>
 
-          {/* Email Address */}
+        <div>
+          <label htmlFor={`${formId}-email`} className={LABEL_CLASS}>
+            Email Address <span className="text-red-600">*</span>
+          </label>
           <div className="relative">
-            <FiMail className="absolute left-1 top-3.5 text-slate-400 w-4 h-4" aria-hidden="true" />
+            <FiMail className="absolute left-3.5 top-3 text-slate-400 w-4 h-4" aria-hidden="true" />
             <input
+              id={`${formId}-email`}
               type="email"
               required
-              placeholder="Email Address"
-              aria-label="Email Address"
+              placeholder="name@company.com"
               autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full pl-8 pr-2 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] placeholder-slate-400"
+              className={INPUT_CLASS}
             />
           </div>
+        </div>
+      </div>
 
-          {/* Select a Service */}
-          <div className="relative">
-            <FiLayers className="absolute left-1 top-3.5 text-slate-400 w-4 h-4 pointer-events-none" aria-hidden="true" />
-            <select
-              required
-              value={formData.service}
-              aria-label="Select a Service"
-              onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-              className={`w-full pl-8 pr-8 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] cursor-pointer appearance-none ${formData.service ? 'text-slate-800' : 'text-slate-400'}`}
-            >
-              <option value="" disabled>
-                Select a Service
+      <div>
+        <label htmlFor={`${formId}-service`} className={LABEL_CLASS}>
+          Required Service <span className="text-red-600">*</span>
+        </label>
+        <div className="relative">
+          <FiLayers className="absolute left-3.5 top-3 text-slate-400 w-4 h-4 pointer-events-none" aria-hidden="true" />
+          <select
+            id={`${formId}-service`}
+            required
+            value={formData.service}
+            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+            className={`${INPUT_CLASS} pr-10 cursor-pointer appearance-none ${formData.service ? 'text-slate-900' : 'text-slate-400'}`}
+          >
+            <option value="" disabled>
+              Select a service or enquiry type
+            </option>
+            {CONTACT_CONTENT.servicesOptions.map((opt) => (
+              <option key={opt} value={opt} className="text-slate-900">
+                {opt}
               </option>
-              {CONTACT_CONTENT.servicesOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-            <div className="absolute right-1 top-3.5 text-slate-400 pointer-events-none text-xs">
-              &#9660;
-            </div>
-          </div>
+            ))}
+          </select>
+          <FiChevronDown className="absolute right-3.5 top-3 text-slate-400 w-4 h-4 pointer-events-none" aria-hidden="true" />
+        </div>
+      </div>
 
-          {/* Your Message */}
-          <div className="relative">
-            <FiMessageSquare className="absolute left-1 top-3.5 text-slate-400 w-4 h-4" aria-hidden="true" />
-            <textarea
-              rows={3}
-              placeholder="Your Message"
-              aria-label="Your Message"
-              maxLength={2000}
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full pl-8 pr-2 py-2.5 sm:py-3 text-sm bg-transparent border-0 border-b-2 border-slate-300 focus:outline-none focus:border-[#0A3C61] placeholder-slate-400"
-            />
-          </div>
+      <div>
+        <label htmlFor={`${formId}-message`} className={LABEL_CLASS}>
+          Requirement Details
+        </label>
+        <div className="relative">
+          <FiMessageSquare className="absolute left-3.5 top-3 text-slate-400 w-4 h-4" aria-hidden="true" />
+          <textarea
+            id={`${formId}-message`}
+            rows={4}
+            placeholder="Share your crystal salt volume, delivery schedule, salt-field development scope, or investment enquiry..."
+            maxLength={2000}
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            className={INPUT_CLASS}
+          />
+        </div>
+      </div>
 
-          <ConsentCheckbox id={`${formId}-consent`} checked={consent} onChange={setConsent} />
+      <ConsentCheckbox id={`${formId}-consent`} checked={consent} onChange={setConsent} />
 
-          {error && (
-            <p role="alert" className="text-sm text-red-700">
-              {error} You can also email us at{' '}
-              <a href={`mailto:${COMPANY_INFO.email}`} className="font-semibold underline">{COMPANY_INFO.email}</a>.
-            </p>
-          )}
-
-          {/* Submit Button */}
-          <div className="pt-2">
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="w-full py-3 text-sm font-semibold text-white bg-[#0A3C61] hover:bg-[#002B4D] disabled:opacity-60 disabled:cursor-not-allowed rounded-pill transition-colors flex items-center justify-center gap-2"
-            >
-              {status === 'sending' ? 'Sending...' : <>Send Message &rarr;</>}
-            </button>
-          </div>
-        </form>
+      {error && (
+        <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          {error}{' '}
+          <span>
+            You can also email us at{' '}
+            <a href={`mailto:${COMPANY_INFO.email}`} className="font-semibold underline">
+              {COMPANY_INFO.email}
+            </a>
+            .
+          </span>
+        </div>
       )}
-    </div>
+
+      <div className="pt-1">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#0A3C61] py-3.5 px-6 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-[#002B4D] hover:shadow-lg active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {status === 'sending' ? (
+            'Sending Enquiry...'
+          ) : (
+            <>
+              Submit Enquiry <FiArrowRight className="w-4 h-4" aria-hidden="true" />
+            </>
+          )}
+        </button>
+      </div>
+    </form>
   );
 };

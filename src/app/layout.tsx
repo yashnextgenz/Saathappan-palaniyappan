@@ -11,6 +11,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: './' },
+  icons: {
+    icon: '/L1.jpeg',
+    apple: '/L1.jpeg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -29,7 +33,7 @@ const ORG_JSON_LD = {
   '@type': 'Organization',
   name: COMPANY_INFO.legalName,
   url: SITE_URL,
-  logo: `${SITE_URL}/duco.png`,
+  logo: `${SITE_URL}/L1.jpeg`,
   telephone: COMPANY_INFO.phone,
   email: COMPANY_INFO.email,
 };
